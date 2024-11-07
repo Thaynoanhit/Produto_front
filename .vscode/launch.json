@@ -1,0 +1,10 @@
+{
+    "configurations": [
+        {
+            "type": "node-terminal",
+            "name": "Terminal de Depuração de JavaScript",
+            "request": "launch",
+            "cwd": "${workspaceFolder}"
+        }
+    ]
+}

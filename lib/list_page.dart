@@ -1,21 +1,28 @@
 import 'package:flutter/material.dart';
 import 'api_service.dart';
 import 'product_details_page.dart';
+import 'insert_product_page.dart';
 
 class ListPage extends StatefulWidget {
   const ListPage({super.key});
 
   @override
-  _ListPageState createState() => _ListPageState();
+  ListPageState createState() => ListPageState();
 }
 
-class _ListPageState extends State<ListPage> {
+class ListPageState extends State<ListPage> {
   late Future<List<dynamic>> _products;
 
   @override
   void initState() {
     super.initState();
-    _products = ApiService.fetchProducts(); // Carregar produtos
+    _loadProducts();
+  }
+
+  void _loadProducts() {
+    setState(() {
+      _products = ApiService.fetchProducts();
+    });
   }
 
   @override
@@ -35,24 +42,26 @@ class _ListPageState extends State<ListPage> {
             return const Center(child: Text('Nenhum produto encontrado.'));
           } else {
             final products = snapshot.data!;
-
             return ListView.builder(
               itemCount: products.length,
               itemBuilder: (context, index) {
                 final product = products[index];
                 return Card(
                   child: ListTile(
-                    title: Text(product['name']),
-                    subtitle: Text('Preço: ${product['price']}'),
-                    onTap: () {
-                      // Passa o produto completo para a página de detalhes
-                      Navigator.push(
+                    title: Text(product['nome']),
+                    subtitle: Text('Preço: ${product['preco']}'),
+                    onTap: () async {
+                      final result = await Navigator.push(
                         context,
                         MaterialPageRoute(
                           builder: (context) =>
                               ProductDetailsPage(product: product),
                         ),
                       );
+                      // Se retornou true, recarrega a lista
+                      if (result == true) {
+                        _loadProducts();
+                      }
                     },
                   ),
                 );
@@ -60,6 +69,20 @@ class _ListPageState extends State<ListPage> {
             );
           }
         },
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () async {
+          final result = await Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const InsertProductPage(),
+            ),
+          );
+          if (result == true) {
+            _loadProducts();
+          }
+        },
+        child: const Icon(Icons.add),
       ),
     );
   }

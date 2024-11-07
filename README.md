@@ -1,16 +1,57 @@
-# produto_app
+# Gerenciamento de Produtos - Frontend
 
-A new Flutter project.
+Aplicativo Flutter para gerenciamento de produtos, com operações CRUD completas.
 
-## Getting Started
+## 🚀 Começando
 
-This project is a starting point for a Flutter application.
+### 📋 Pré-requisitos
 
-A few resources to get you started if this is your first Flutter project:
+* Flutter SDK instalado (versão 3.0 ou superior)
+* Dart SDK instalado
+Backend do projeto rodando (https://github.com/Thaynoanhit/Produto-Api)
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+### 🔧 Instalação e Execução Detalhada
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+1. **Primeiro, certifique-se que o backend está rodando**
+   ```bash
+   # Clone e execute o backend primeiro:
+   git clone https://github.com/Thaynoanhit/Produto-Api
+   cd Produto-Api
+   # Siga as instruções do README do backend
+   ```
+
+2. **Clone este repositório**
+   ```bash
+   git clone https://github.com/Thaynoanhit/Produto_front
+   cd Produto_front
+   ```
+
+3. **Instale as dependências**
+   ```bash
+   flutter pub get
+   ```
+
+4. **Verifique a configuração do ambiente**
+   ```bash
+   flutter doctor
+   ```
+
+5. **Execute o aplicativo**
+   ```bash
+   # Para desenvolvimento
+   flutter run
+   ```
+
+   ### 📱 Usando o Aplicativo
+
+* Na tela inicial, você verá a lista de produtos cadastrados
+* Use o botão '+' para adicionar um novo produto
+* Toque em um produto para ver seus detalhes
+* Use os ícones de editar/excluir para modificar ou remover produtos
+
+## 🛠️ Construído com
+
+* [Flutter](https://flutter.dev/) - Framework UI
+* [Dart](https://dart.dev/) - Linguagem de programação
+* [http](https://pub.dev/packages/http) - Package para requisições HTTP
+

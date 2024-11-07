@@ -2,13 +2,11 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 class ApiService {
-  static const String baseUrl =
-      'http://localhost:3001/produtos'; // Substitua pela URL do seu backend
+  static const String baseUrl = 'http://localhost:3001';
 
-  // Função para criar um produto
   static Future<void> createProduct(Map<String, dynamic> productData) async {
     final response = await http.post(
-      Uri.parse('$baseUrl'),
+      Uri.parse('$baseUrl/produtos'),
       headers: {'Content-Type': 'application/json'},
       body: json.encode(productData),
     );
@@ -18,9 +16,8 @@ class ApiService {
     }
   }
 
-  // Função para buscar todos os produtos
   static Future<List<dynamic>> fetchProducts() async {
-    final response = await http.get(Uri.parse('$baseUrl/products'));
+    final response = await http.get(Uri.parse('$baseUrl/produtos'));
 
     if (response.statusCode == 200) {
       return json.decode(response.body);
@@ -29,9 +26,8 @@ class ApiService {
     }
   }
 
-  // Função para buscar um produto específico
   static Future<Map<String, dynamic>> fetchProductDetails(int productId) async {
-    final response = await http.get(Uri.parse('$baseUrl/products/$productId'));
+    final response = await http.get(Uri.parse('$baseUrl/produtos/$productId'));
 
     if (response.statusCode == 200) {
       return json.decode(response.body);
@@ -40,11 +36,10 @@ class ApiService {
     }
   }
 
-  // Função para atualizar um produto
   static Future<void> updateProduct(
       int productId, Map<String, dynamic> productData) async {
     final response = await http.put(
-      Uri.parse('$baseUrl/products/$productId'),
+      Uri.parse('$baseUrl/produtos/$productId'),
       headers: {'Content-Type': 'application/json'},
       body: json.encode(productData),
     );
@@ -54,10 +49,9 @@ class ApiService {
     }
   }
 
-  // Função para excluir um produto
   static Future<void> deleteProduct(int productId) async {
     final response =
-        await http.delete(Uri.parse('$baseUrl/products/$productId'));
+        await http.delete(Uri.parse('$baseUrl/produtos/$productId'));
 
     if (response.statusCode != 200) {
       throw Exception('Falha ao excluir produto');
