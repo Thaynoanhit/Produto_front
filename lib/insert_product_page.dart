@@ -35,7 +35,6 @@ class InsertProductPageState extends State<InsertProductPage> {
     try {
       await ApiService.createProduct(newProduct);
       if (mounted) {
-        // Mostra mensagem de sucesso e retorna para a ListPage
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             content:

@@ -48,7 +48,6 @@ class EditProductPageState extends State<EditProductPage> {
     try {
       await ApiService.updateProduct(widget.product['id'], updatedProduct);
       if (mounted) {
-        // Retorna o produto atualizado para a página de detalhes
         Navigator.pop(context, {
           ...updatedProduct,
           'id': widget.product['id'],
