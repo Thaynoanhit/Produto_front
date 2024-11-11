@@ -2,8 +2,6 @@
 
 Aplicativo Flutter para gerenciamento de produtos, com operações CRUD completas.
 
-## 🚀 Começando
-
 ### 📋 Pré-requisitos
 
 * Flutter SDK instalado (versão 3.0 ou superior)
@@ -42,12 +40,25 @@ Backend do projeto rodando (https://github.com/Thaynoanhit/Produto-Api)
    flutter run
    ```
 
+## ⚙️ Funcionalidades
+
+* Listagem de produtos
+* Mecanismo de Busca 
+* Cadastro de novos produtos
+* Visualização detalhada de produto
+* Edição de produtos existentes
+* Exclusão de produtos
+* Validação de formulários
+
+
    ### 📱 Usando o Aplicativo
 
 * Na tela inicial, você verá a lista de produtos cadastrados
 * Use o botão '+' para adicionar um novo produto
 * Toque em um produto para ver seus detalhes
 * Use os ícones de editar/excluir para modificar ou remover produtos
+* Use a barra de pesquisa para buscar um produto
+* Aplicativo totalmente intuitivo
 
 ## 🛠️ Construído com
 
